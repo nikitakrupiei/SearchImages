@@ -12,7 +12,7 @@ class DecodableService {
     static let shared = DecodableService()
     private init() {}
     
-    static func decodeOne<Entity: Decodable>(data: Data, success:@escaping((Entity)->()), fail:@escaping((Error)->())){
+    func decodeOne<Entity: Decodable>(data: Data, success:@escaping((Entity)->()), fail:@escaping((Error)->())){
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(Entity.self, from: data)

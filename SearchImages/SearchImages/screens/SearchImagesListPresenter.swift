@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SearchImagesListPresenterDelegate: BasePresenterDelegate{
+    func showImageUrls(urls: [URL])
     func showStartBusy()
     func showStopBusy()
 }
@@ -16,6 +17,21 @@ class SearchImagesListPresenter: SearchImagesListInteractorDelegate {
     weak var viewController: SearchImagesListPresenterDelegate?
     
     func presentError(error: Error) {
+        if let error = error as? APIError {
+            viewController?.showError(message: error.local)
+        }
+    }
+    
+    func presentSearchTagResults(tagResults: TagSearchModel) {
+        let urls = tagResults.response.compactMap({
+            $0.photos?.map({ photo in
+                photo.originalSize.url
+            })
+        }).flatMap({
+            $0
+        })
+        
+        viewController?.showImageUrls(urls: urls)
     }
     
     func presentStartBusy() {

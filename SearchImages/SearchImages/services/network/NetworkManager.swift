@@ -7,23 +7,15 @@
 
 import Foundation
 
-protocol NetworkManager {
-    var method: HTTPMethod { get }
-    var path: String { get }
-    var query: Parameters? { get }
-    var timeInterval: TimeInterval { get }
-}
-
-extension NetworkManager {
+class NetworkManager {
     
-    var timeInterval: TimeInterval {
-        return 60
+    var request: Request
+    
+    init(request: Request) {
+        self.request = request
     }
     
     func callRequest(success:@escaping(responseSuccessHandler), fail:@escaping(responseErrorHandler)) {
-        guard let request = Request(path: path, httpMethod: method, timeInterval: timeInterval, with: query) else {
-            return
-        }
         execute(request: request, success: success, fail: fail)
     }
     
@@ -31,8 +23,8 @@ extension NetworkManager {
         send(request: request, completionHandler: { (data, response, error) in
             do {
                 print("Request: \(request.request.url?.absoluteString ?? "")")
-                let (_data, _response, _status, message) = try validateResponse(data: data, response: response, error: error)
-                try handlerResponseStatus(status: _status, response: _response, message: message)
+                let (_data, _response, _status, message) = try self.validateResponse(data: data, response: response, error: error)
+                try self.handlerResponseStatus(status: _status, response: _response, message: message)
                 DispatchQueue.main.async {
                     success(_data)
                 }

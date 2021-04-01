@@ -9,12 +9,19 @@ import Foundation
 
 class EnvironmentConfiguration {
     
-    static var baseApiUrl : URL? {
+    static let shared = EnvironmentConfiguration()
+    private init() {}
+    
+    var baseApiUrl : URL? {
         let baseUrl = "http://api.tumblr.com"
         return URL(string: baseUrl)
     }
     
-    static var apiVersion: String? {
+    var apiVersion: String? {
         return "/v2"
+    }
+    
+    var apiKey: String {
+        return "CcEqqSrYdQ5qTHFWssSMof4tPZ89sfx6AXYNQ4eoXHMgPJE03U"
     }
 }

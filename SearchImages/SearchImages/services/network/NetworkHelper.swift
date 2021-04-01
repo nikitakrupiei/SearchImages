@@ -74,10 +74,10 @@ struct Request {
     
     init?(path: String, httpMethod: HTTPMethod, timeInterval: TimeInterval, with query: Parameters?){
         
-        guard var requestPath = EnvironmentConfiguration.baseApiUrl else {
+        guard var requestPath = EnvironmentConfiguration.shared.baseApiUrl else {
             return nil
         }
-        if let apiVersion = EnvironmentConfiguration.apiVersion {
+        if let apiVersion = EnvironmentConfiguration.shared.apiVersion {
             requestPath.appendPathComponent(apiVersion)
         }
         requestPath = URL(string: requestPath.absoluteString)?.appendingPathComponent(path) ?? requestPath

@@ -16,6 +16,13 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
     var interactor: SearchImagesListViewDelegate?
     var router: SearchImagesListRouter?
     
+    var imageURLs: [URL] = []{
+        didSet{
+            tableView.reloadData()
+            handleNoData()
+        }
+    }
+    
     @IBOutlet var searchContainerView: UIView!{
         didSet{
             searchContainerView.layer.cornerRadius = 8
@@ -51,7 +58,7 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
     
     @IBOutlet var noDataTitle: UILabel!{
         didSet{
-            noDataTitle.text = "Start searching images and you'll see them here!"
+            noDataTitle.text = "Oops.. Nothing was found. Try searching for other tag"
         }
     }
     
@@ -59,6 +66,18 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
         super.settings()
         SearchImagesListConfigurator.shared.configure(vc: self)
         setTopBarLightContentStyle()
+        title = "Tag search"
+    }
+    
+    func handleNoData() {
+        UIView.animate(withDuration: 0.5) { [self] in
+            noDataStack.isHidden = imageURLs.count != 0
+            noDataStack.alpha = imageURLs.count == 0 ? 1 : 0
+        }
+    }
+    
+    func showImageUrls(urls: [URL]){
+        imageURLs = urls
     }
     
     func showStartBusy() {
@@ -75,6 +94,24 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
             return
         }
         interactor?.didFinishSearch(with: text)
+    }
+}
+
+extension SearchImagesListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imageURLs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchImagesListCell.reusableIdentifier, for: indexPath) as? SearchImagesListCell else {
+            return UITableViewCell()
+        }
+        cell.searchImageView.imgUrl = imageURLs[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
