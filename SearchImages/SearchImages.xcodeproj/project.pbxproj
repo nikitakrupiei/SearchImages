@@ -18,6 +18,8 @@
 		846F09612615DFA50088FDF9 /* SearchImagesListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F095C2615DFA50088FDF9 /* SearchImagesListConfigurator.swift */; };
 		846F09682615E0850088FDF9 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F09672615E0850088FDF9 /* ViewControllers.swift */; };
 		846F096C2615E45E0088FDF9 /* ActivityIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F096B2615E45E0088FDF9 /* ActivityIndicatorUtils.swift */; };
+		846F09722615ECBB0088FDF9 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F09712615ECBB0088FDF9 /* Buttons.swift */; };
+		846F09752615EDA90088FDF9 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F09742615EDA90088FDF9 /* ColorUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		846F095C2615DFA50088FDF9 /* SearchImagesListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagesListConfigurator.swift; sourceTree = "<group>"; };
 		846F09672615E0850088FDF9 /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		846F096B2615E45E0088FDF9 /* ActivityIndicatorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorUtils.swift; sourceTree = "<group>"; };
+		846F09712615ECBB0088FDF9 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		846F09742615EDA90088FDF9 /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				846F09672615E0850088FDF9 /* ViewControllers.swift */,
+				846F09712615ECBB0088FDF9 /* Buttons.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				846F096B2615E45E0088FDF9 /* ActivityIndicatorUtils.swift */,
+				846F09742615EDA90088FDF9 /* ColorUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -176,6 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846F09722615ECBB0088FDF9 /* Buttons.swift in Sources */,
+				846F09752615EDA90088FDF9 /* ColorUtils.swift in Sources */,
 				846F09682615E0850088FDF9 /* ViewControllers.swift in Sources */,
 				846F09612615DFA50088FDF9 /* SearchImagesListConfigurator.swift in Sources */,
 				846F096C2615E45E0088FDF9 /* ActivityIndicatorUtils.swift in Sources */,
