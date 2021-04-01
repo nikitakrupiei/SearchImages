@@ -180,11 +180,22 @@
                         <outlet property="searchTextField" destination="5oi-Gm-1LB" id="M0q-ke-2ru"/>
                         <outlet property="separatorView" destination="YH7-qO-cMs" id="kZL-EM-fiI"/>
                         <outlet property="tableView" destination="UEc-M3-RFu" id="o6M-fg-gg8"/>
+                        <segue destination="bj3-F7-Alo" kind="show" identifier="navigateToImageDetails" id="3xz-Ft-eo2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="69.642857142857139"/>
+        </scene>
+        <!--SearchImageDetails-->
+        <scene sceneID="qaQ-mI-VrJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchImageDetails" id="bj3-F7-Alo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="G0p-Wo-ICO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dla-y7-sWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vak-b3-fji">

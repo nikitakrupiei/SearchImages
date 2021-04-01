@@ -140,7 +140,7 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
-		4CCE0FCC2616499C00981926 /* SearchImageDetails */ = {
+		4CCE0FCC2616499C00981926 /* searchImageDetails */ = {
 			isa = PBXGroup;
 			children = (
 				4CCE0FCF261649BF00981926 /* SearchImageDetailsViewController.swift */,
@@ -150,7 +150,7 @@
 				4CCE0FD1261649BF00981926 /* SearchImageDetailsConfigurator.swift */,
 				4CCE0FD926164A1100981926 /* SearchImageDetails.storyboard */,
 			);
-			path = SearchImageDetails;
+			path = searchImageDetails;
 			sourceTree = "<group>";
 		};
 		846F09572615DF860088FDF9 /* screens */ = {
@@ -162,8 +162,8 @@
 				846F09592615DFA50088FDF9 /* SearchImagesListRouter.swift */,
 				846F095C2615DFA50088FDF9 /* SearchImagesListConfigurator.swift */,
 				4CCE0FA82615DCCB00981926 /* SearchImagesList.storyboard */,
-				4CCE0FCC2616499C00981926 /* SearchImageDetails */,
 				4CCE0FC426163CA800981926 /* cells */,
+				4CCE0FCC2616499C00981926 /* searchImageDetails */,
 			);
 			path = screens;
 			sourceTree = "<group>";

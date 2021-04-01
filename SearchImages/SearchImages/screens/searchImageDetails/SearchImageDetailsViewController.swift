@@ -15,6 +15,14 @@ class SearchImageDetailsViewController: BaseViewController,  SearchImageDetailsP
     var interactor: SearchImageDetailsViewDelegate?
     var router: SearchImageDetailsRouter?
     
+    var imageURL: URL?
+    
+    @IBOutlet weak var searchImageView: NetworkLoadImage!{
+        didSet{
+            searchImageView.imgUrl = imageURL
+        }
+    }
+    
     override func settings() {
         super.settings()
         SearchImageDetailsConfigurator.shared.configure(vc: self)

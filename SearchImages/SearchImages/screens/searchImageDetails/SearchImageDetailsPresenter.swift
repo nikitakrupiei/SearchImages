@@ -22,10 +22,10 @@ class SearchImageDetailsPresenter: SearchImageDetailsInteractorDelegate {
     }
     
     func presentStartBusy() {
-        delegate?.showStartBusy()
+        viewController?.showStartBusy()
     }
     
     func presentStopBusy() {
-        delegate?.showStopBusy()
+        viewController?.showStopBusy()
     }
 }

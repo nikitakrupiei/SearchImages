@@ -21,8 +21,12 @@ extension APIConfigurator {
         return 60
     }
     
+    private var request: Request? {
+        return Request(path: path, httpMethod: method, timeInterval: timeInterval, with: query)
+    }
+    
     func decodeOne<Entity: Codable>(success:@escaping((Entity)->()), fail:@escaping(responseErrorHandler)){
-        guard let request = Request(path: path, httpMethod: method, timeInterval: timeInterval, with: query) else {
+        guard let request = request else {
             return
         }
         

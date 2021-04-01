@@ -9,6 +9,7 @@ import Foundation
 
 protocol SearchImagesListPresenterDelegate: BasePresenterDelegate{
     func showImageUrls(urls: [URL])
+    func showImageDetails(at position: Int)
     func showStartBusy()
     func showStopBusy()
 }
@@ -20,6 +21,10 @@ class SearchImagesListPresenter: SearchImagesListInteractorDelegate {
         if let error = error as? APIError {
             viewController?.showError(message: error.local)
         }
+    }
+    
+    func presentImageDetails(at indexPath: IndexPath) {
+        viewController?.showImageDetails(at: indexPath.row)
     }
     
     func presentSearchTagResults(tagResults: TagSearchModel) {

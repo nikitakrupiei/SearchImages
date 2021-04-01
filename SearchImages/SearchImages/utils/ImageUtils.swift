@@ -19,7 +19,7 @@ class NetworkLoadImage: UIImageView {
     
     var spinner: UIActivityIndicatorView?
     
-    func setImage() {
+    private func setImage() {
         guard let url = imgUrl else {
             return
         }
@@ -52,7 +52,7 @@ class NetworkLoadImage: UIImageView {
         }
     }
     
-    func addSpinner() {
+    private func addSpinner() {
         guard spinner == nil else {
             return
         }

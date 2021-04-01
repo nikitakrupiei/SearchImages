@@ -10,6 +10,7 @@ import Foundation
 protocol SearchImagesListInteractorDelegate{
     func presentError(error: Error)
     func presentSearchTagResults(tagResults: TagSearchModel)
+    func presentImageDetails(at indexPath: IndexPath)
     func presentStartBusy()
     func presentStopBusy()
 }
@@ -28,4 +29,7 @@ class SearchImagesListInteractor: SearchImagesListViewDelegate{
         }
     }
     
+    func didTapOnRow(at indexPath: IndexPath){
+        presenter?.presentImageDetails(at: indexPath)
+    }
 }

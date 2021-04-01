@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchImagesListViewDelegate{
     func didFinishSearch(with text: String)
+    func didTapOnRow(at indexPath: IndexPath)
 }
 
 class SearchImagesListViewController: BaseViewController,  SearchImagesListPresenterDelegate{
@@ -76,6 +77,15 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        router?.passDataToNextScene(segue: segue, sender: sender)
+    }
+    
+    func showImageDetails(at position: Int) {
+        router?.navigateToImageDetails(imageUrl: imageURLs[position])
+    }
+    
     func showImageUrls(urls: [URL]){
         imageURLs = urls
     }
@@ -112,6 +122,7 @@ extension SearchImagesListViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        interactor?.didTapOnRow(at: indexPath)
     }
 }
 
