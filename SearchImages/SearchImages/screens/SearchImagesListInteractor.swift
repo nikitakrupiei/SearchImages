@@ -15,4 +15,8 @@ protocol SearchImagesListInteractorDelegate{
 
 class SearchImagesListInteractor: SearchImagesListViewDelegate{
     var presenter: SearchImagesListInteractorDelegate?
+    
+    func didFinishSearch(with text: String) {
+        presenter?.presentStartBusy()
+    }
 }

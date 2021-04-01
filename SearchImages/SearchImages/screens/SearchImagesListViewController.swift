@@ -8,6 +8,7 @@
 import UIKit
 
 protocol SearchImagesListViewDelegate{
+    func didFinishSearch(with text: String)
 }
 
 class SearchImagesListViewController: BaseViewController,  SearchImagesListPresenterDelegate{
@@ -66,6 +67,14 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
     
     func showStopBusy() {
         hideIndicator()
+    }
+    
+    @IBAction func didTapSearchButton(_ sender: Any) {
+        guard let text = searchTextField.text, !text.isEmpty else{
+            searchContainerView.shake()
+            return
+        }
+        interactor?.didFinishSearch(with: text)
     }
 }
 
