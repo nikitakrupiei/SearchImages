@@ -29,8 +29,7 @@ extension APIConfigurator {
         guard let request = request else {
             return
         }
-        
-        NetworkManager(request: request).callRequest(success: { data in
+        NetworkManager.shared.callRequest(request: request, success: { data in
             DecodableService.shared.decodeOne(data: data, success: success, fail: fail)
         }, fail: fail)
     }

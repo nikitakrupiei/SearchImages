@@ -9,13 +9,10 @@ import Foundation
 
 class NetworkManager {
     
-    var request: Request
+    static let shared = NetworkManager()
+    private init() {}
     
-    init(request: Request) {
-        self.request = request
-    }
-    
-    func callRequest(success:@escaping(responseSuccessHandler), fail:@escaping(responseErrorHandler)) {
+    func callRequest(request: Request, success:@escaping(responseSuccessHandler), fail:@escaping(responseErrorHandler)) {
         execute(request: request, success: success, fail: fail)
     }
     
