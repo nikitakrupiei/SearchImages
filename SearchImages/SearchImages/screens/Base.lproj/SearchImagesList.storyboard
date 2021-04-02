@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0dg-VJ-uSs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fQs-iR-ist">
                                         <rect key="frame" x="8" y="0.0" width="398" height="44"/>
@@ -68,7 +68,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="980-2K-C94">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="714"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="748"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH7-qO-cMs">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -78,10 +78,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiJ-1j-SqV">
-                                                <rect key="frame" x="0.0" y="1" width="414" height="713"/>
+                                                <rect key="frame" x="0.0" y="1" width="414" height="747"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEc-M3-RFu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="713"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="747"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchImagesListCell" id="Dw9-h3-6lN" customClass="SearchImagesListCell" customModule="SearchImages" customModuleProvider="target">
@@ -116,7 +116,7 @@
                                                         </connections>
                                                     </tableView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="e84-iN-WtD">
-                                                        <rect key="frame" x="20" y="260.5" width="374" height="192.5"/>
+                                                        <rect key="frame" x="20" y="277.5" width="374" height="192.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UrW-b7-sPr">
                                                                 <rect key="frame" x="112" y="0.0" width="150" height="150"/>
@@ -165,7 +165,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0dg-VJ-uSs" secondAttribute="trailing" id="6aP-yW-Vuw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0dg-VJ-uSs" secondAttribute="bottom" id="7ES-3o-bdc"/>
+                            <constraint firstAttribute="bottom" secondItem="0dg-VJ-uSs" secondAttribute="bottom" id="7ES-3o-bdc"/>
                             <constraint firstItem="0dg-VJ-uSs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fvt-1y-0Vo"/>
                             <constraint firstItem="0dg-VJ-uSs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gIZ-Ot-BNa"/>
                         </constraints>

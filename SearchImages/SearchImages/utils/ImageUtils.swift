@@ -8,7 +8,31 @@
 import Foundation
 import UIKit
 
-let imageCache = NSCache<AnyObject, AnyObject>()
+let imageCache = NSCache<NSURL, ImageCache>()
+
+// class for caching images and not being discarded when app enters background
+class ImageCache: NSObject , NSDiscardableContent {
+
+    let image: UIImage
+    
+    init(image: UIImage) {
+        self.image = image
+    }
+
+    func beginContentAccess() -> Bool {
+        return true
+    }
+
+    func endContentAccess() {
+    }
+
+    func discardContentIfPossible() {
+    }
+
+    func isContentDiscarded() -> Bool {
+        return false
+    }
+}
 
 // ImageView for downloading image from URL
 class NetworkLoadImage: UIImageView {
@@ -21,7 +45,7 @@ class NetworkLoadImage: UIImageView {
         
         self.image = nil
         
-        if let imageCache = imageCache.object(forKey: url as NSURL) as? UIImage {
+        if let imageCache = imageCache.object(forKey: url as NSURL)?.image {
             completion?(nil, imageCache)
             self.image = imageCache
             return
@@ -38,8 +62,8 @@ class NetworkLoadImage: UIImageView {
                 guard let imgData = imgData, let image = UIImage(data: imgData) else {
                     return
                 }
-                
-                imageCache.setObject(image, forKey: url as NSURL)
+                let cacheImage = ImageCache(image: image)
+                imageCache.setObject(cacheImage, forKey: url as NSURL)
                 
                 //check if we are on the correct reusable cell
                 if url == self.imgUrl {

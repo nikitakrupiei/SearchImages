@@ -146,7 +146,7 @@ extension SearchImagesListViewController: UITableViewDelegate, UITableViewDataSo
         
         let url = imageURLs[indexPath.row]
         
-        if let imageCache = imageCache.object(forKey: url as NSURL) as? UIImage {
+        if let imageCache = imageCache.object(forKey: url as NSURL)?.image {
             return (imageCache.size.height * defaultWidth / imageCache.size.width) + paddings
         }
         return UITableView.automaticDimension
