@@ -10,31 +10,31 @@ import UIKit
 
 class CornerButton: UIButton {
     
-    var leftOffset: CGFloat = 15 {
+    @IBInspectable var leftOffset: CGFloat = 15 {
         didSet{
             setNeedsDisplay()
         }
     }
     
-    var rightOffset: CGFloat = 15 {
+    @IBInspectable var rightOffset: CGFloat = 15 {
         didSet{
             setNeedsDisplay()
         }
     }
     
-    var topOffset: CGFloat = 10 {
+    @IBInspectable var topOffset: CGFloat = 10 {
         didSet{
             setNeedsDisplay()
         }
     }
     
-    var bottomOffset: CGFloat = 10 {
+    @IBInspectable var bottomOffset: CGFloat = 10 {
         didSet{
             setNeedsDisplay()
         }
     }
     
-    var tintColorImage: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0){
+    @IBInspectable var tintColorImage: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0){
         didSet{
             self.setNeedsDisplay()
         }

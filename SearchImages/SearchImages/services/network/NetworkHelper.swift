@@ -92,7 +92,6 @@ struct Request {
         
         self.request = baseRequest
     }
-    
 }
 
 extension URLRequest {
