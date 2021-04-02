@@ -10,23 +10,19 @@ import UIKit
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
+// ImageView for downloading image from URL
 class NetworkLoadImage: UIImageView {
-    var imgUrl: URL? {
-        didSet{
-            setImage()
-        }
-    }
+    var imgUrl: URL?
     
     var spinner: UIActivityIndicatorView?
     
-    private func setImage() {
-        guard let url = imgUrl else {
-            return
-        }
+    func setImage(url: URL, completion: ((_ downloadedImage: UIImage?, _ cashedImage: UIImage?) -> Void)? = nil) {
+        self.imgUrl = url
         
         self.image = nil
         
         if let imageCache = imageCache.object(forKey: url as NSURL) as? UIImage {
+            completion?(nil, imageCache)
             self.image = imageCache
             return
         }
@@ -45,8 +41,12 @@ class NetworkLoadImage: UIImageView {
                 
                 imageCache.setObject(image, forKey: url as NSURL)
                 
+                //check if we are on the correct reusable cell
                 if url == self.imgUrl {
-                    self.image = image
+                    completion?(image, nil)
+                    
+                    //this set causes jumping effect from one width to another, so I left only presentation of cashed images
+                    //self.image = image
                 }
             }
         }

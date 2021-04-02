@@ -28,8 +28,8 @@ class SearchImagesListPresenter: SearchImagesListInteractorDelegate {
     }
     
     func presentSearchTagResults(tagResults: TagSearchModel) {
-        let urls = tagResults.response.compactMap({
-            $0.photos?.map({ photo in
+        let urls = tagResults.response.compactMap({ response in
+            response.photos?.map({ photo in
                 photo.originalSize.url
             })
         }).flatMap({

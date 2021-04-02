@@ -12,6 +12,7 @@ protocol BaseViewControllerDelegate {
     var hideNavigationBar: Bool {get}
 }
 
+// Base view controller with some base functionality that will be inherited by every ViewController in the app
 class BaseViewController: UIViewController, BaseViewControllerDelegate {
     
     private var attachableTap: UITapGestureRecognizer?
@@ -159,6 +160,7 @@ extension UIViewController {
     }
 }
 
+//protocol for presenting base errors, messages etc
 protocol BasePresenterDelegate: class {
     func showError(message: String)
 }

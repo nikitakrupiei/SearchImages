@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Manager to execute request and validate response status
 class NetworkManager {
     
     static let shared = NetworkManager()

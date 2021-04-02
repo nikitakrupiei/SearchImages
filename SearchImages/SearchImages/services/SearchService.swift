@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Service for concrete screens. There can be many of them, They use APIConfigurator and used by interactors
 class SearchService {
     
     static let shared = SearchService()

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Manager to decode Data in correct Decodable model
 class DecodableService {
     
     static let shared = DecodableService()

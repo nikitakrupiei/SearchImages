@@ -13,4 +13,7 @@ class SearchImagesListCell: UITableViewCell {
     
     @IBOutlet weak var searchImageView: NetworkLoadImage!
     
+    func loadImage(url: URL, completion: @escaping(_ downloadedImage: UIImage?, _ cashedImage: UIImage?) -> Void) {
+        searchImageView.setImage(url: url, completion: completion)
+    }
 }

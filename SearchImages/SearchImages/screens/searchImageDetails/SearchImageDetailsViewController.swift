@@ -19,7 +19,10 @@ class SearchImageDetailsViewController: BaseViewController,  SearchImageDetailsP
     
     @IBOutlet weak var searchImageView: NetworkLoadImage!{
         didSet{
-            searchImageView.imgUrl = imageURL
+            guard let url = imageURL else {
+                return
+            }
+            searchImageView.setImage(url: url)
         }
     }
     

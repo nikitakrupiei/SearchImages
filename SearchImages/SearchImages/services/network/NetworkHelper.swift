@@ -7,6 +7,8 @@
 
 import Foundation
 
+//Helper file with network models and extension
+
 public typealias Parameters = [String:Any]
 typealias responseHandler = (Data?, URLResponse?, Error?) -> Void
 typealias responseErrorHandler = (_ response:Error)->()

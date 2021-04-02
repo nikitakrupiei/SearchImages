@@ -24,6 +24,10 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
         }
     }
     
+    var isTableViewEmpty: Bool {
+        self.imageURLs.count == 0
+    }
+    
     @IBOutlet var searchContainerView: UIView!{
         didSet{
             searchContainerView.layer.cornerRadius = 8
@@ -72,8 +76,8 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
     
     func handleNoData() {
         UIView.animate(withDuration: 0.5) { [self] in
-            noDataStack.isHidden = imageURLs.count != 0
-            noDataStack.alpha = imageURLs.count == 0 ? 1 : 0
+            noDataStack.isHidden = !isTableViewEmpty
+            noDataStack.alpha = isTableViewEmpty ? 1 : 0
         }
     }
     
@@ -103,6 +107,12 @@ class SearchImagesListViewController: BaseViewController,  SearchImagesListPrese
             searchContainerView.shake()
             return
         }
+        
+        if !isTableViewEmpty {
+            let topRow = IndexPath(row: 0, section: 0)
+            tableView.scrollToRow(at: topRow, at: .top, animated: true)
+        }
+        self.searchTextField.resignFirstResponder()
         interactor?.didFinishSearch(with: text)
     }
 }
@@ -116,13 +126,30 @@ extension SearchImagesListViewController: UITableViewDelegate, UITableViewDataSo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchImagesListCell.reusableIdentifier, for: indexPath) as? SearchImagesListCell else {
             return UITableViewCell()
         }
-        cell.searchImageView.imgUrl = imageURLs[indexPath.row]
+        cell.selectionStyle = .none
+        
+        cell.loadImage(url: imageURLs[indexPath.row]) { (downLoadedImage, _) in
+            if let _ = downLoadedImage {
+                tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         interactor?.didTapOnRow(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let paddings: CGFloat = 20
+        let defaultWidth: CGFloat = 300
+        
+        let url = imageURLs[indexPath.row]
+        
+        if let imageCache = imageCache.object(forKey: url as NSURL) as? UIImage {
+            return (imageCache.size.height * defaultWidth / imageCache.size.width) + paddings
+        }
+        return UITableView.automaticDimension
     }
 }
 

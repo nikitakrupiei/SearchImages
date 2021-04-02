@@ -7,7 +7,7 @@
 
 import Foundation
 
-//protocol that uses NetworkManager and parses data with the help of DecodableService
+//protocol that uses NetworkManager to execute request and parses it's data with the help of DecodableService
 protocol APIConfigurator {
     var method: HTTPMethod { get }
     var path: String { get }
