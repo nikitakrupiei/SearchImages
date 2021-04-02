@@ -151,6 +151,10 @@ extension SearchImagesListViewController: UITableViewDelegate, UITableViewDataSo
         }
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.tableView(tableView, heightForRowAt: indexPath)
+    }
 }
 
 extension SearchImagesListViewController: ActivityIndicatorDelegate {
